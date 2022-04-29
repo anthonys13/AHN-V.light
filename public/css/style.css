@@ -1,0 +1,297 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav {
+  color: #444;
+}
+
+.carnet-page,
+.login-page,
+.add-page,
+.profil-page {
+  overflow: auto;
+}
+
+.register {
+  height: 100vh;
+}
+
+.card-image {
+  border-radius: 0.2em;
+}
+
+.color-card {
+  background-color: #689eae7d !important;
+}
+
+.img {
+  position: sticky;
+  left: 783px;
+  top: 215px;
+}
+
+.img-animal {
+  position: sticky;
+  left: 783px;
+  top: 15px;
+}
+
+.btn-file {
+  border-radius: 3em !important;
+}
+
+.carnet-account {
+  width: 50% !important;
+}
+
+.carnet-box-account {
+  margin-bottom: 0 !important;
+}
+
+.btn-small {
+  margin-left: 1em;
+}
+
+.card-reveal-color {
+  background-color: #060606d9!important;
+}
+
+.prof-img {
+  border: 0.5px solid #b3b3b3;
+}
+
+.input-email-edit,
+.input-pass-edit {
+  width: 200px !important;
+}
+
+.ahn-logo {
+  width: 20px;
+}
+
+.img-size-account {
+  min-height: 400px;
+  max-height: 400px;
+  max-width: 400px;
+  object-fit: contain;
+  background-color: rgb(56, 76, 93);
+}
+
+.drop-log {
+  width: 219.617px !important;
+}
+
+.collapsible,
+.collapsible-header {
+  /* box-shadow: none!important; */
+  border-radius: 0.8em !important;
+}
+
+.vet-table,
+.vac-table,
+.parti-table {
+  overflow: auto;
+}
+
+.add-animal-page {
+  margin-top: 25%;
+}
+
+.login {
+  margin-top: 2em !important;
+}
+
+.delete-icon-home {
+  font-size: 1.5rem !important;
+}
+
+.animal-name-carnet {
+  margin: 0;
+}
+
+.table-particular {
+  display: flex;
+}
+
+body {
+  background-color: #70809085;
+}
+
+.message_title {
+  margin: 0;
+  text-align: center;
+}
+
+.carnet,
+.add-animal-page,
+.profil {
+  height: 100vh;
+}
+
+.brand-logo {
+  color: hsl(0, 0%, 0%) !important;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: hsl(0, 0%, 0%);
+}
+
+.btn {
+  background-color: hsl(0, 0%, 0%) !important;
+}
+
+.css-carac {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.icone-carac {
+  width: 20px !important;
+}
+
+.flex-carac {
+  display: flex;
+}
+
+.background {
+  background-color: #3840488c !important;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: 650px !important;
+  color: rgba(255, 255, 255, .9);
+}
+
+.parallax-container .section {
+  width: 100%;
+}
+
+.profil-page,
+.prof-img {
+  border-radius: 0.5em !important;
+}
+
+.home-icon {
+  margin-right: 0.5em !important;
+}
+
+.mdp-collaps,
+.mail-collaps {
+  width: 250px !important;
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  .row .col.s6 {
+    width: 50% !important;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+
+  .img-profil {
+    width: 50% !important;
+  }
+
+  .profil-flex {
+    display: flow-root !important;
+  }
+
+  .home-card {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+@media only screen and (min-width : 861px) {
+  .carnet-account {
+    width: 33% !important;
+  }
+
+}
+
+@media only screen and (min-width : 601px) {
+  .img-profil {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (min-width : 800px) {
+  .img-profil {
+    width: 35% !important;
+  }
+}
+
+
+@media only screen and (max-width : 570px) {
+  #index-banner .section {
+    width: 100%;
+  }
+
+  .profil-flex {
+    display: flow-root !important;
+  }
+
+  .img-profil {
+    width: 50% !important;
+  }
+
+  .row .col.s6 {
+    width: 100% !important;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+
+}
+
+@media only screen and (max-width : 810px) {
+  .carnet-account {
+    width: 50% !important;
+  }
+
+}
+
+@media only screen and (max-width : 320px) {
+  .row .col.s6 {
+    width: 100% !important;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+  background-color: #444 !important;
+}

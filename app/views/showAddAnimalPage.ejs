@@ -1,0 +1,55 @@
+<%- include('partials/header')%>
+
+<div class="container add-page center">
+  <div class="row add-animal-page center">
+    <di class="col s12 m4 l2"></di>
+    <div class="col s12 m4 l8 center">
+      <div class="card grey darken-1"></div>
+      <form class="black-text col s12" action="/animal/add" method="POST">
+        <h4 class="center white-text">Ajoute ton animal de compagnie</h4>
+        <span class="helper-text center blue-text">Vous devez remplir tous les champs.</span>
+        <% if(locals.error) { %>
+        <p role="alert" class="red-text"><%=error%></p>
+        <% } %>
+        <% if(locals.confirm) { %>
+        <p role="alert" class="green-text"><%=confirm%> <i class="white-text small material-icons">check</i></p>
+        <% } %>
+        <% if(locals.error2) { %>
+          <p role="alert" class="red-text"><%=error2%></p>
+          <% } %>
+        <ul class="black-text">
+          <li>
+            <input id="nom" class="black-text" type="text" name="nom" required>
+            <label class="black-text" for="nom">Nom</label>
+          </li>
+          <li>
+            <input id="poids" class="black-text" type="number" name="poids" required>
+            <label class="black-text" for="poids">Poids en kg</label>
+          </li>
+          <li>
+            <input id="age" class="black-text" type="date" name="age" required pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])/(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])/(?:30))|(?:(?:0\[13578\]|1\[02\])-31))">
+            <label class="black-text" for="age">Date anniversaire</label>
+          </li>
+          <li>
+            <input id="race" class="black-text" type="text" name="race" required>
+            <label class="black-text" for="race">Race</label>
+          </li>
+          <li>
+            <input id="type" class="black-text" type="text" name="type" required>
+            <label class="black-text" for="type">Type : chien, chat, tortue ...</label>
+          </li>
+        </ul>
+        <div class="text-log">
+          <a class="btn grey darken-1" href="/">Accueil</a>
+
+          <input class="btn blue" type="submit" value="valider" />
+        </div>
+        <br>
+      </form>
+
+    </div>
+    <di class="col s12 m4 l2"></di>
+  </div>
+</div>
+
+<%- include('partials/footer')%>

@@ -1,0 +1,56 @@
+<%- include('partials/header')%>
+
+<div class="container login-page center">
+  <div class="row register">
+    <form class="col s12" action="/register" method="POST">
+      <h4 class="register-page">Identifiants</h4>
+      <% if(locals.error1) { %>
+      <p role="alert " class="alerte red-text"><%=error1%></p>
+      <% } %>
+      <div class="row #b0bec5 ">
+        <div class="input-field col s12">
+          <% if(locals.error3) { %>
+          <p role="alert " class="alerte red-text"><%=error3%></p>
+          <% } %>
+          <input id="email" type="email" class="validate" name="email" required>
+          <label class="black-text" for="email">Email</label>
+        </div>
+      </div>
+      <% if(locals.error2) { %>
+      <p role="alert " class="alerte red-text"><%=error2%></p>
+      <% } %>
+      <div class="row #b0bec5 ">
+        <div class="input-field col s12">
+          <input id="mdp" type="password" class="validate" name="mdp" required>
+          <label class="black-text" for="mdp">Mot de passe</label>
+        </div>
+      </div>
+      <div class="input-field col s12">
+        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" required>
+        <label class="black-text" for="passwordConfirm">Confirmez votre mot de passe</label>
+      </div>
+
+      <h4 class="register-page">Informations personnelles</h4>
+
+      <div class="input-field col s12">
+        <input class="getConnect" type="text" name="prenom" required>
+        <label class="black-text" for="prenom">Prénom</label>
+      </div>
+      <div class="input-field col s12">
+        <input class="getConnect" type="text" name="nom" required>
+        <label class="black-text" for="nom">Nom</label>
+      </div>
+      <br>
+      <div class="text-log">
+        <input class="btn blue" type="submit" value="valider" /> 
+      </div>
+      <br>
+      <!-- <a class="btn blue" href="/login">Vous avez deja un compte ?</a> -->
+      <div class="text-log">
+      </div>
+    </form>
+    <a href="/"><span class="blue-text name">Accueil</span></a>
+  </div>
+</div>
+
+<%- include('partials/footer')%>

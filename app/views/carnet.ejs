@@ -1,0 +1,201 @@
+<%- include('partials/header')%>
+
+<div class="container carnet-page">
+  <div class="section carnet">
+    <div class="row card grey darken-1">
+      <h3 class="center animal-name-carnet white-text">Carnet de <pan class="blue-text"><%=currentAnimal[0].nom.toUpperCase()%></pan>
+      </h3>
+      <div class="col s6">
+        <div class="card blue lighten-4">
+          <div class="card-content black-text">
+            <span class="card-title">Caractéristiques</span>
+            <ul class="collapsible">
+              <li>
+                <div class="collapsible-header"><a href="#"><i class="tiny material-icons">edit</i></a> Nom : <%=currentAnimal[0].nom%></div>
+                <div class="collapsible-body css-carac">
+                  <div class="row css-carac">
+                    <form class="col s12">
+                      <div class="css-carac row">
+                        <div class="input-field col s6 css-carac flex-carac">
+                          <input id="nom" type="text" name="nom" class="black-text validate">
+                          <label class="blue-text" for="nom">Nouveau nom</label>
+                          <a class="btn-floating btn-small waves-effect waves-light red" type="submit" name="action"><i class="icone-carac material-icons">add</i></a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><a href="#"><i class="tiny material-icons">edit</i></a> Race : <%=currentAnimal[0].race%></div>
+                <div class="collapsible-body">
+                  <div class="row css-carac">
+                    <form class="col s12">
+                      <div class="css-carac row">
+                        <div class="input-field col s6 css-carac flex-carac">
+                          <input id="race" type="text" name="race" class="black-text validate">
+                          <label class="blue-text" for="race">Nouvelle Race</label>
+                          <a class="btn-floating btn-small waves-effect waves-light red" type="submit" name="action"><i class="icone-carac material-icons">add</i></a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><a href="#"><i class="tiny material-icons">edit</i></a> Poids : <%=currentAnimal[0].poids%> kg</div>
+                <div class="collapsible-body">
+                  <div class="row css-carac">
+                    <form class="col s12">
+                      <div class="css-carac row">
+                        <div class="input-field col s6 css-carac flex-carac">
+                          <input id="poids" type="text" name="poids" class="black-text validate">
+                          <label class="blue-text" for="poids">Nouveau poids</label>
+                          <a class="btn-floating btn-small waves-effect waves-light red" type="submit" name="action"><i class="icone-carac material-icons">add</i></a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><a href="#"><i class="tiny material-icons">edit</i></a> Date de naissance : <%=formatAge%></div>
+                <div class="collapsible-body">
+                  <div class="row css-carac">
+                    <form class="col s12">
+                      <div class="css-carac row">
+                        <div class="input-field col s6 css-carac flex-carac">
+                          <input id="age" type="text" name="age" class="black-text validate">
+                          <label class="blue-text" for="age">Nouvelle date</label>
+                          <a class="btn-floating btn-small waves-effect waves-light red" type="submit" name="action"><i class="icone-carac material-icons">add</i></a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="card deep-purple lighten-5">
+          <div class="card-content parti-table black-text">
+            <span class="card-title">Particularitées</span>
+            <table class="centered">
+              <thead>
+                <tr>
+                  <td><a href="#"><i class="small material-icons">add</i></a></td>
+                  <th>Nom</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(const particular of particularsAnimal) { %>
+                <tr>
+                  <% if(particular["particulars.id"] === null) { %>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <% } else { %>
+              <td><a href="#"><i class="green-text tiny material-icons">edit</i></a> <a href="#"><i class="red-text tiny material-icons">delete</i></a></td>
+              <td><%=particular["particulars.nom"]%></td>
+              <td><%=particular["particulars.descriptif"]%></td>
+              <% } %>
+              </tr>
+              <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m12">
+        <div class="card teal lighten-4">
+          <div class="card-content vac-table black-text">
+            <span class="card-title">Vaccinations</span>
+            <table class="centered">
+              <thead>
+                <tr>
+                  <td><a href="#"><i class="small material-icons">add</i></a></td>
+                  <th>Type</th>
+                  <th>Date</th>
+                  <th>Prochain rappel</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% for(const vac of vacAnimal) { %>
+                <tr>
+                  <% if(vac["Vacs.id"] === null) { %>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <% } else { %>
+                  <td><a href="#"><i class="green-text tiny material-icons">edit</i></a> <a href="#"><i class="red-text tiny material-icons">delete</i></a></td>
+                  <td><%=vac["Vacs.nom"]%></td>
+                  <td><%=formatVac%></td>
+                  <td><%=formatRappelVac%></td>
+                  <% } %>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m12">
+        <div class="card orange lighten-5">
+          <div class="card-content vet-table black-text">
+            <span class="card-title">Visites vétérinaires</span>
+            <table class="centered">
+              <thead>
+                <tr>
+                  <td><a href="#"><i class="small material-icons">add</i></a></td>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Nom du vétérinaire</th>
+                  <th>Traitement</th>
+                  <th>Analyses et examens</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% for(const vet of vetAnimal) { %>
+                <tr>
+                  <% if(vet["Vets.id"] === null) { %>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <% } else { %>
+                  <td><a href="#"><i class="green-text tiny material-icons">edit</i></a> <a href="#"><i class="red-text tiny material-icons">delete</i></a></td>
+                  <% if(formatVet === 'Invalid Date') { %>
+                  <td></td>
+                  <% } else { %>
+                  <td><%=formatVet%></td>
+                  <% } %>
+                  <td><%=vet["Vets.descriptif"]%></td>
+                  <td><%=vet["Vets.vet_name"]%></td>
+                  <td><%=vet["Vets.traitement"]%></td>
+                  <td><%=vet["Vets.analyse_exams"]%></td>
+                  <% } %>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="center"><a class="red-text" href="/delete/<%=currentAnimal[0].id%>">supprimer <%=currentAnimal[0].nom.toUpperCase()%></a></p>
+  </div>
+</div>
+
+<%- include('partials/footer')%>

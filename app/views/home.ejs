@@ -1,0 +1,87 @@
+<%- include('partials/header')%>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center black-text text-lighten-0">My Animals Healths Notes</h1>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax"><img src="images/DSC_0222.png" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h4>Comment fonctionne nos services ?</h4>
+    <div class="col s4 home-card">
+      <h5><i class="small material-icons blue-text home-icon">add_to_queue</i>Ajouter</h5>
+      <p>Ajouter votre animal de compagnie pour créer son carnet de santé. <a href="/addPage" class="btn-floating blue pulse"><i class="black-text tiny material-icons">add</i></a></p>
+    </div>
+    <div class="col s4 home-card">
+      <h5><i class="small material-icons blue-text home-icon">keyboard</i>Renseigner</h5>
+      <p>Complétez le journal de votre animal selon différentes catégories !</p>
+    </div>
+    <div class="col s4 home-card">
+      <h5><i class="small material-icons blue-text home-icon">assessment</i>Organiser</h5>
+      <p>Mettre de côté vos carnets pour un meilleur suivi médical.</p>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12">Restez proche de vos animaux grâce à un suivi au poil !</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="images/paralax3.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <h2 class="center white-text"><i class="blue-text material-icons">contact_mail</i></h2>
+      <h4 class="center" id="contact">Nous contacter</h4>
+      <% if(locals.confirmMail) { %>
+      <p role="alert" class="green-text"><%=confirmMail%> <i class="white-text small material-icons">check</i></p>
+      <% } %>
+      <form class="center col s12" id="contact-form" action="send" name="envoi" method="POST">
+        <% if(locals.errorEmail) { %>
+        <p role="alert" class="red-text"><%=errorEmail%></p>
+        <% } %>
+        <textarea id="email" class="materialize-textarea black-text" name="email"></textarea>
+        <label class="black-text" for="email">Email</label>
+        <% if(locals.errorNom) { %>
+        <p role="alert" class="red-text"><%=errorNom%></p>
+        <% } %>
+        <input id="nom" type="text" class="validate black-text" name="nom">
+        <label class="black-text" for="nom">Nom et prénom</label>
+        <% if(locals.errorMessage) { %>
+        <p role="alert" class="red-text"><%=errorMessage%></p>
+        <% } %>
+        <textarea id="textarea1" class="materialize-textarea black-text" name="message"></textarea>
+        <label class="black-text" for="textarea1">Message</label>
+        <br>
+        <br>
+        <br>
+        <button class="btn waves-effect waves-light blue-text" type="submit">
+          <a href="#contact">Envoyer</a>
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+    </div>
+  </div>
+  <div class="parallax"><img src="images/paralax2.jpg" alt="Unsplashed background img 3"></div>
+</div>
+
+<%- include('partials/footer')%>

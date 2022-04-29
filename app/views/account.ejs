@@ -1,0 +1,101 @@
+<%- include('partials/header')%>
+
+<div class="container profil-page">
+  <!-- Page Content goes here -->
+  <div class="section profil">
+    <div class="col s6 m8 offset-m2 l6 offset-l3">
+      <div class="card-panel profil-page grey darken-1 z-depth-1 hoverable">
+        <div class="row profil-flex valign-wrapper">
+          <div class="col s2 img-profil">
+            <img src="images/<%=getMyUser.img%>" alt="profil picture" class="hoverable z-depth-1 prof-img responsive-img">
+          </div>
+          <div class="col s10 getIdEmail" id="<%=getMyUser.id%>">
+            <span class="black-text">
+              <ul class="collapsible">
+                <li>Nom: <pan class="white-text"><%=getMyUser.nom%></pan>
+                </li>
+                <br>
+                <li>Prénom: <pan class="white-text"><%=getMyUser.prenom%></pan>
+                </li>
+                <ul class="collapsible mail-collaps">
+                  <li id="editmailmodal">
+                    <p class="green-text succedEmailchange"></p>
+                    <p class="red-text errorEmailchange"></p>
+                    <pan class="collapsible-header white-text edit-email-btn">
+                      <p class="email-content"><%=getMyUser.email%></p>
+                      <a href="#"><i class="blue-text tiny material-icons">edit</i></a>
+                    </pan>
+                    <form action="" method="POST" class="collapsible-body form-edit-email">
+                      <input class="white-text input-email-edit" type="email" name="email" value="" placeholder="Nouvel email">
+                      <button class="blue waves-effect waves-light btn-small white-text" type="submit">
+                        Enregistrer
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="col s10 getIdMdp" id="<%=getMyUser.id%>">
+          <span class="black-text">
+            <ul class="collapsible mdp-collaps">
+              <li>
+                <p class="green-text succedMDPchange"></p>
+                <p class="red-text errorMDPchange"></p>
+                <pan class="collapsible-header edit-mdp-btn">Changer le mot de passe<a href="#" class="black-text" id="<%=session.user[0].id%>"><i class="blue-text tiny material-icons">edit</i></a></pan>
+                <form id="editmdpmodal" action="" method="POST" class="collapsible-body form-edit-pass">
+                  <input class="white-text input-pass-edit" name="mdp" value="" placeholder="Nouveau mot de passe">
+                  <button class="blue waves-effect waves-light btn-small white-text" type="submit">
+                    Enregistrer
+                  </button>
+                </form>
+
+              </li>
+            </ul>
+            <a class="black-text" href="/logout">Se déconnecter</a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row carnet-box-account">
+      <div class="col s12">
+        <% if(getMyAnimalsByUsers.length){ %>
+        <h5 class="center">Mes carnets<a href="/addPage"><i class="blue-text small material-icons">add</i></a></h5>
+
+        <% for(const myAnimals of getMyAnimalsByUsers) { %>
+        <div class="col s6 center carnet-account">
+          <div class="card sticky-action grey darken-1 center hoverable">
+            <div class="z-depth-1 card-image waves-effect waves-block waves-light hoverable">
+              <img class="activator img-size-account" src="/images/<%=myAnimals.img%>">
+            </div>
+            <div class="color-card card-content white-text">
+              <a href="/carnet/<%=myAnimals.id%>">
+                <span class="card-title white-text"><%=myAnimals.nom%>
+                  <div class="divider"></div>
+                </span>
+              </a>
+            </div>
+            <div class="card-reveal card-reveal-color">
+              <a class="card-title blue-text text-darken-4"><i class="material-icons right">close</i>
+              </a>
+              <a href="/carnet/<%=myAnimals.id%>" class="card-title blue-text text-darken-4"><%=myAnimals.nom%></a>
+              <ul class="white-text text-darken-4">
+                <li>Race : <%=myAnimals.race%></li>
+                <li>Poids : <%=myAnimals.poids%> kg</li>
+                <li>Date de naissance : <%=myAnimals.age%></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <% } else { %>
+        <h5 class="center white-text">Commencez par ajouter votre premier animal domestique. <a href="/addPage" class="btn-floating blue pulse"><i class="black-text small material-icons">pets</i></a></h5>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/app.js"></script>
+
+<%- include('partials/footer')%>

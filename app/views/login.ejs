@@ -1,0 +1,115 @@
+<%- include('partials/header')%>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center black-text text-lighten-0">My Animals Healths Notes</h1>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax"><img src="images/DSC_0222.png" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h4>Comment fonctionne nos services ?</h4>
+    <div class="col s4 home-card">
+      <h5><i class="small material-icons blue-text home-icon">add_to_queue</i>Ajouter</h5>
+      <p>Ajouter votre animal de compagnie pour créer son carnet de santé.</p>
+    </div>
+    <div class="col s4 home-card">
+      <h5><i class="small material-icons blue-text home-icon">keyboard</i>Renseigner</h5>
+      <p>Complétez le journal de votre animal selon différentes catégories !</p>
+    </div>
+    <div class="col s4 home-card">
+      <h5><i class="small material-icons blue-text home-icon">assessment</i>Organiser</h5>
+      <p>Mettre de côté vos carnets pour un meilleur suivi médical.</p>
+    </div>
+  </div>
+  <br>
+</div>
+<h4 class="center">Connectez vous pour commencer !</h4>
+<div class="container login-page center">
+  <div class="row login">
+    <form class="col s12" action="/login" method="POST">
+      <% if(locals.error1) { %>
+      <p class="alert alert-danger" role="alert"><%=error1%></p>
+      <% } %>
+      <div class="row #b0bec5 ">
+        <div class="input-field col s12">
+          <input id="id" type="email" class="validate" name="email" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="row #b0bec5 black-text">
+        <div class="input-field col s12 black-text">
+          <input id="mdp" type="password" class="validate black-text" name="mdp" placeholder="Mot de passe" required>
+        </div>
+      </div>
+      <% if(locals.error3) { %>
+      <p class="alert alert-danger" role="alert"><%=error3%></p>
+      <% } %>
+      <div class="text-log">
+        <input class="btn blue" type="submit" value="valider" />
+      </div>
+      <br>
+      <a class="btn blue" href="/register">S'inscrire</a>
+    </form>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12">Restez proche de vos animaux grâce à un suivi au poil !</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="images/paralax3.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <h2 class="center white-text"><i class="blue-text material-icons">contact_mail</i></h2>
+      <h4 class="center" id="contact">Nous contacter</h4>
+      <% if(locals.confirmMail) { %>
+      <p role="alert" class="green-text"><%=confirmMail%> <i class="white-text small material-icons">check</i></p>
+      <% } %>
+      <form class="center col s12" id="contact-form" action="send" name="envoi" method="POST">
+        <% if(locals.errorEmail) { %>
+        <p role="alert" class="red-text"><%=errorEmail%></p>
+        <% } %>
+        <input type="email" class="validate" name="email" required>
+        <label class="black-text" for="email">Email</label>
+        <% if(locals.errorNom) { %>
+        <p role="alert" class="red-text"><%=errorNom%></p>
+        <% } %>
+        <input id="nom" type="text" class="validate black-text" name="nom">
+        <label class="black-text" for="nom">Nom et prénom</label>
+        <% if(locals.errorMessage) { %>
+        <p role="alert" class="red-text"><%=errorMessage%></p>
+        <% } %>
+        <textarea id="textarea1" class="materialize-textarea black-text" name="message"></textarea>
+        <label class="black-text" for="textarea1">Message</label>
+        <br>
+        <br>
+        <br>
+        <button class="btn waves-effect waves-light blue-text" type="submit">
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+    </div>
+  </div>
+  <div class="parallax"><img src="images/DSC_0068.png" alt="Unsplashed background img 3"></div>
+</div>
+
+<%- include('partials/footer')%>
